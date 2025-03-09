@@ -1,9 +1,42 @@
-{% extends "base.html" %}
-{% block content %}
-    <section class="about-section">
-        <img src="{{ about.profile_image }}" alt="Profile Picture" class="profile-image">
-        <h1>{{ about.name }}</h1>
-        <h2>{{ about.title }}</h2>
-        <p>{{ about.summary }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ about.name }} | AI Engineer Portfolio</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Engineer Portfolio</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/skills">Skills</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/experience">Experience</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="about">
+        <div class="container">
+            <div class="profile">
+                <img src="{{ about.profile_image }}" alt="{{ about.name }}">
+                <h1>{{ about.name }}</h1>
+                <h2>{{ about.title }}</h2>
+                <p>{{ about.summary }}</p>
+            </div>
+        </div>
     </section>
-{% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Engineer Portfolio | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

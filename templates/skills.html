@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <section class="skills-section">
+    <section class="skills-section" data-aos="fade-up">
         <h1>Skills</h1>
         <ul class="skills-list">
             {% for skill in skills %}
-                <li>
+                <li data-aos="zoom-in">
                     <strong>{{ skill.name }}:</strong> {{ skill.proficiency }}
                 </li>
             {% endfor %}

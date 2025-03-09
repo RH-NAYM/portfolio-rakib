@@ -1,17 +1,33 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <section class="contact-section">
+    <section class="contact-section" data-aos="fade-up">
         <h1>Contact</h1>
         <div class="contact-details">
             <p><strong>Email:</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+            
             {% if contact.linkedin %}
-                <p><strong>LinkedIn:</strong> <a href="{{ contact.linkedin }}" target="_blank">{{ contact.linkedin }}</a></p>
+                <p><strong>LinkedIn:</strong> 
+                    <a href="{{ contact.linkedin }}" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn Profile
+                    </a>
+                </p>
             {% endif %}
+            
             {% if contact.github %}
-                <p><strong>GitHub:</strong> <a href="{{ contact.github }}" target="_blank">{{ contact.github }}</a></p>
+                <p><strong>GitHub:</strong> 
+                    <a href="{{ contact.github }}" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Profile
+                    </a>
+                </p>
             {% endif %}
+            
             {% if contact.website %}
-                <p><strong>Website:</strong> <a href="{{ contact.website }}" target="_blank">{{ contact.website }}</a></p>
+                <p><strong>Website:</strong> 
+                    <a href="{{ contact.website }}" target="_blank">
+                        <i class="fas fa-globe"></i> Visit Website
+                    </a>
+                </p>
             {% endif %}
         </div>
     </section>
