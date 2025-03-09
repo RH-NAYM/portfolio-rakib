@@ -1,6 +1,27 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | AI Engineer Portfolio</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Engineer Portfolio</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/skills">Skills</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/experience">Experience</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-{% block content %}
     <section class="experience-section" data-aos="fade-up">
         <h1>Experience</h1>
         <div class="experience-list">
@@ -14,4 +35,11 @@
             {% endfor %}
         </div>
     </section>
-{% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Engineer Portfolio | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
