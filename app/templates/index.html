@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <section id="profile">
+        <div class="profile-image-container">
+            <img src="{{ content.profile.image }}" alt="Profile Picture">
+        </div>
+        <p>{{ content.profile.bio }}</p>
+        <div class="social">
+            <a href="https://github.com/{{ content.profile.social.github }}">GitHub</a>
+            <a href="https://linkedin.com/in/{{ content.profile.social.linkedin }}">LinkedIn</a>
+            <a href="https://twitter.com/{{ content.profile.social.twitter }}">Twitter</a>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        {% for project in content.projects %}
+            <div class="project">
+                <img src="{{ project.image }}" alt="{{ project.title }}">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <a href="{{ project.link }}">View Project</a>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            {% for skill in content.skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="experience">
+        <h2>Experience</h2>
+        {% for job in content.experience %}
+            <div class = "job">
+                <h3>{{job.role}} at {{job.company}}</h3>
+                <p>Duration: {{job.duration}}</p>
+                <p>{{job.description}}</p>
+            </div>
+        {% endfor %}
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href = "mailto:{{content.contact.email}}">{{content.contact.email}}</a></p>
+    </section>
+{% endblock %}
