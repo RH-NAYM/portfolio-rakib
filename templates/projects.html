@@ -1,22 +1,47 @@
-{% extends "base.html" %}
-{% block content %}
-    <section class="projects-section">
-        <h1>Projects</h1>
-        <div class="projects-grid">
-            {% for project in projects %}
-                <div class="project-item">
-                    <h2>{{ project.title }}</h2>
-                    <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | AI Engineer Portfolio</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Engineer Portfolio</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/skills">Skills</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/experience">Experience</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="projects">
+        <div class="container">
+            <h1>Projects</h1>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <img src="{{ project.image }}" alt="{{ project.title }}">
+                    <h3>{{ project.title }}</h3>
                     <p>{{ project.description }}</p>
-                    <p><strong>Technologies:</strong> {{ ", ".join(project.technologies) }}</p>
-                    {% if project.github_url %}
-                        <a href="{{ project.github_url }}" target="_blank">GitHub</a>
-                    {% endif %}
-                    {% if project.demo_url %}
-                        <a href="{{ project.demo_url }}" target="_blank">Demo</a>
-                    {% endif %}
+                    <a href="{{ project.github_url }}" target="_blank">View on GitHub</a>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </section>
-{% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Engineer Portfolio | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

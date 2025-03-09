@@ -1,13 +1,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-</head>
+    <meta name="description" content="AI Engineer Portfolio showcasing skills, projects, and experience.">
+    <meta name="author" content="AI Engineer">
+    
+    <!-- Open Graph Meta Tags for Social Media Integration -->
+    <meta property="og:title" content="AI Engineer Portfolio">
+    <meta property="og:description" content="AI Engineer Portfolio showcasing skills, projects, and experience.">
+    <meta property="og:image" content="/static/images/portfolio-image.jpg"> <!-- Replace with your portfolio image -->
+    <meta property="og:url" content="https://www.yourportfolio.com">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourusername">
+    <meta name="twitter:title" content="AI Engineer Portfolio">
+    <meta name="twitter:description" content="AI Engineer Portfolio showcasing skills, projects, and experience.">
+    <meta name="twitter:image" content="/static/images/portfolio-image.jpg"> <!-- Replace with your image -->
 
+    <!-- Page Title -->
+    <title>{% block title %}AI Engineer Portfolio{% endblock %}</title>
+    
+    <!-- Google Font (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Optional Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXXXX-X'); // Replace with your own Google Analytics ID
+    </script>
+</head>
 
 <body>
     <header>
@@ -19,26 +49,22 @@
             <a href="/contact">Contact</a>
         </nav>
     </header>
+
     <main class="content">
         {% block content %}{% endblock %}
     </main>
+
     <footer>
         <p>&copy; {{ about.name if about is defined else 'AI Engineer Portfolio' }}</p>
     </footer>
 
-    <!-- AOS JS -->
+    <!-- AOS JS for Scroll Animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init(); // Initialize AOS animations
+        AOS.init({
+            duration: 1200, // Duration for the animation
+            easing: 'ease-in-out', // Easing function for animation
+            once: true // Ensures the animation only happens once
+        });
     </script>
 </body>
-
-
-
-<ul class="skills-list" data-aos="fade-up">
-    {% for skill in skills %}
-        <li data-aos="zoom-in">
-            <strong>{{ skill.name }}:</strong> {{ skill.proficiency }}
-        </li>
-    {% endfor %}
-</ul>

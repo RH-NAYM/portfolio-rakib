@@ -20,7 +20,7 @@ class Project(BaseModel):
     technologies: List[str]
     github_url: Optional[str] = None
     demo_url: Optional[str] = None
-    image: Optional[str] = None # Added image field
+    image: Optional[str] = None  # Added image field
 
 class Experience(BaseModel):
     company: str
@@ -40,10 +40,9 @@ class About(BaseModel):
     name: str
     title: str
     summary: str
-    profile_image: Optional[str] = None # Added profile image.
+    profile_image: Optional[str] = None  # Added profile image
 
 # Data (Replace with your own data!)
-
 skills = [
     # Programming Languages
     Skill(name="Python", proficiency="Expert"),
@@ -119,14 +118,14 @@ projects = [
         description="A model to analyze sentiment of text",
         technologies=["Python", "TensorFlow", "NLP"],
         github_url="https://github.com/yourusername/sentiment-analysis",
-        image="/static/images/project1.jpg"
+        image="/static/images/data_cleaning.png"
     ),
     Project(
         title="Image Classification System",
         description="Classify images using CNNs",
         technologies=["Python", "PyTorch", "Computer Vision"],
         github_url="https://github.com/yourusername/image-classification",
-        image="/static/images/project2.png"
+        image="/static/images/object_detection.jpg"
     ),
     # Add other projects as needed
 ]
