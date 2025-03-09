@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="contact-section">
+        <h1>Contact</h1>
+        <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+            {% if contact.linkedin %}
+                <p><strong>LinkedIn:</strong> <a href="{{ contact.linkedin }}" target="_blank">{{ contact.linkedin }}</a></p>
+            {% endif %}
+            {% if contact.github %}
+                <p><strong>GitHub:</strong> <a href="{{ contact.github }}" target="_blank">{{ contact.github }}</a></p>
+            {% endif %}
+            {% if contact.website %}
+                <p><strong>Website:</strong> <a href="{{ contact.website }}" target="_blank">{{ contact.website }}</a></p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

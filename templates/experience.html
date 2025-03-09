@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="experience-section">
+        <h1>Experience</h1>
+        <div class="experience-list">
+            {% for exp in experience %}
+                <div class="experience-item">
+                    <h2>{{ exp.position }} at {{ exp.company }}</h2>
+                    <p>{{ exp.start_date }} - {{ exp.end_date or "Present" }}</p>
+                    <p>{{ exp.description }}</p>
+                    <p><strong>Technologies:</strong> {{ ", ".join(exp.technologies) }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

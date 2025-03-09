@@ -1,0 +1,207 @@
+/* body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+}
+
+nav a:hover {
+    background-color: #34495e;
+    border-radius: 5px;
+}
+
+.content {
+    max-width: 960px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 1em auto;
+}
+
+.skills-list, .projects-grid, .experience-list, .contact-details {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    margin-bottom: 0.5em;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+}
+
+.project-item, .experience-item {
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+footer p {
+    margin: 0;
+} */
+
+
+
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Navigation Bar */
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav a {
+    color: white;
+    margin: 0 20px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffb800;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(135deg, #42a5f5, #26c6da);
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+}
+
+/* Content Sections */
+.skills-section, .projects-section, .experience-section, .contact-section {
+    margin: 40px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+ul.skills-list, ul.projects-list {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 400px; /* Makes the list scrollable */
+}
+
+.skills-list li, .projects-list li {
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skills-list li:hover, .projects-list li:hover {
+    transform: translateY(-5px); /* Hover effect for smooth lift */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+footer p {
+    opacity: 0.7;
+}
+
+/* Profile Image */
+.profile-image {
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.1); /* Profile image zoom effect */
+}

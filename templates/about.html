@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="about-section">
+        <img src="{{ about.profile_image }}" alt="Profile Picture" class="profile-image">
+        <h1>{{ about.name }}</h1>
+        <h2>{{ about.title }}</h2>
+        <p>{{ about.summary }}</p>
+    </section>
+{% endblock %}
