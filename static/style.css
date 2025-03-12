@@ -1010,7 +1010,7 @@ body{
 .why-choose .choose-right{
 	height:100%;
 	width:100%;
-	background-image:url('img/video-bg.jpg');
+	background-image:url('img/profile_1.jpg');
 	background-size:cover;
 	background-position:center;
 	background-repeat:no-repeat;
@@ -1062,6 +1062,8 @@ body{
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
 }
+
+
 /*=======================
 	End Why choose CSS
 =========================*/
