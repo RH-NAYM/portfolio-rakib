@@ -5,21 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Appointment</title>
     <link rel="stylesheet" href="/static/css/apoint.css"> <!-- Link to your CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-    <div class="appointment-form">
-        <h2>Schedule an Appointment</h2>
-        <form action="/schedule-appointment" method="post">
-            <input name="name" placeholder="Your name" required type="text">
-            <input name="email" placeholder="Your email address" required type="email">
-            <input name="phone" placeholder="Your phone number" required type="text">
-            <input name="date" placeholder="Appointment date" required type="date">
-            <input name="time" placeholder="Appointment time" required type="time">
-            <textarea name="message" placeholder="Your message (optional)"></textarea>
-            <button type="submit">Schedule Appointment</button>
-        </form>
+    <div class="appointment-container">
+        <!-- Modern Clock Section -->
+        <div class="clock">
+            <div id="clock" class="clock-face">
+                <div class="clock-center"></div> <!-- Center Dot for the clock -->
+                <div class="hour-hand"></div>
+                <div class="minute-hand"></div>
+                <div class="second-hand"></div>
+            </div>
+        </div>
+
+        <!-- Appointment Form Section -->
+        <div class="appointment-form">
+            <h2>Schedule an Appointment</h2>
+            <form action="/schedule-appointment" method="post">
+                <div class="input-group">
+                    <input id="name" name="name" placeholder="Your name" required type="text">
+                </div>
+                <div class="input-group">
+                    <input id="email" name="email" placeholder="Your email address" required type="email">
+                </div>
+                <div class="input-group">
+                    <input id="phone" name="phone" placeholder="Your phone number" required type="text">
+                </div>
+                <input id="appointment-date" name="date" placeholder="Appointment date" required type="text">
+                <input id="appointment-time" name="time" placeholder="Appointment time" required type="text" readonly>
+                <textarea name="message" placeholder="Your message (optional)"></textarea>
+                <button type="submit">Schedule Appointment</button>
+            </form>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize flatpickr for the calendar input
+        flatpickr("#appointment-date", {
+            dateFormat: "Y-m-d",
+            minDate: "today",  // Prevent selecting past dates
+        });
+
+        // Function to update the time dynamically (clock)
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            // Update the clock hands (analog clock)
+            const hourDeg = (360 / 12) * (hours % 12) + (360 / 12) * (minutes / 60);
+            const minuteDeg = (360 / 60) * minutes;
+            const secondDeg = (360 / 60) * seconds;
+
+            document.querySelector('.hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+            document.querySelector('.minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
+            document.querySelector('.second-hand').style.transform = `rotate(${secondDeg}deg)`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        updateClock();  // Initial call to set the clock right away
+
+        // Time picker pop-up animation (mimicking Android-like animation)
+        document.getElementById("appointment-time").addEventListener("focus", function() {
+            this.classList.add("active");
+            this.type = "time"; // Open the native time picker on mobile
+        });
+
+        document.getElementById("appointment-time").addEventListener("blur", function() {
+            this.classList.remove("active");
+            if (!this.value) {
+                this.type = "text"; // Reset input type to text for visual effect
+            }
+        });
+
+        // Floating label effect for email and other inputs
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.nextElementSibling.classList.add('active');
+            });
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.nextElementSibling.classList.remove('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
