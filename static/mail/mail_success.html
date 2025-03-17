@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 18px;
+        }
+        .success-icon {
+            font-size: 60px;
+            color: #4CAF50;
+        }
+        .redirect-message {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <i class="success-icon">&#x2705;</i>
+        <h1>Thank You for Your Message!</h1>
+        <p>We have successfully received your message. Our team will get back to you shortly.</p>
+        <div class="redirect-message">
+            <p>Redirecting you to the homepage in a few seconds...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript to automatically redirect the user -->
+    <script>
+        setTimeout(function() {
+            window.location.href = '/'; // Redirect to the homepage or any other page
+        }, 5000); // 5000ms = 5 seconds
+    </script>
+</body>
+</html>

@@ -15,8 +15,8 @@ Message: ".$message."
 
 ";
 
-mail ("name@youremail.com" , "New Message", $email_message);
-header("location: ../mail-success.html");
+mail ("naym.mj@gmail.com" , "Thanks for your Support, Stay connected.", $email_message);
+header("location: ../mail_success.html");
 ?>
 
 
