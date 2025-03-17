@@ -20,7 +20,6 @@ PASSWORD = "qwpi okax czji hvkt"  # App password if 2FA enabled
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
-
 @app.get("/", response_class=HTMLResponse)
 async def read_index(request: Request):
     try:
@@ -28,30 +27,35 @@ async def read_index(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error rendering index.html: {e}")
 
-
-@app.post("/subscribe", response_class=HTMLResponse)
-async def subscribe(request: Request, email: str = Form(...)):
+@app.get("/schedule-appointment", response_class=HTMLResponse)
+async def schedule_appointment(request: Request):
     try:
-        # Send confirmation email
-        send_email(email)
-
-        # You can add logic here to store the email in a database or file
-        return templates.TemplateResponse("subscribe-success.html", {"request": request, "email": email})
-
+        return templates.TemplateResponse("appointment.html", {"request": request})
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error handling subscription: {e}")
+        raise HTTPException(status_code=500, detail=f"Error rendering appointment.html: {e}")
 
+@app.post("/schedule-appointment", response_class=HTMLResponse)
+async def schedule_appointment_post(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(...), date: str = Form(...), time: str = Form(...), message: str = Form(...)):
+    try:
+        # Send confirmation email (optional)
+        send_email(email, name, date, time)
 
-def send_email(receiver_email: str):
+        # Logic for storing appointment details (optional)
+
+        return templates.TemplateResponse("appointment-success.html", {"request": request, "name": name, "email": email, "date": date, "time": time})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error handling appointment: {e}")
+
+def send_email(receiver_email: str, name: str, date: str, time: str):
     try:
         # Setup the MIME
         message = MIMEMultipart()
         message["From"] = EMAIL
         message["To"] = receiver_email
-        message["Subject"] = "Subscription Confirmation"
+        message["Subject"] = "Appointment Confirmation"
 
         # Email body
-        body = "Thank you for subscribing to our newsletter!"
+        body = f"Hi {name},\n\nYour appointment has been scheduled for {date} at {time}."
         message.attach(MIMEText(body, "plain"))
 
         # Connect to Gmail SMTP server
@@ -64,7 +68,6 @@ def send_email(receiver_email: str):
     except Exception as e:
         print(f"Error sending email: {e}")
         raise HTTPException(status_code=500, detail="Failed to send confirmation email")
-
 
 if __name__ == "__main__":
     import uvicorn

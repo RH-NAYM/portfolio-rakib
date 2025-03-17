@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment</title>
+    <link rel="stylesheet" href="/static/css/apoint.css">
+</head>
+<body>
+    <div class="appointment-container">
+        <!-- Modern Clock Section -->
+        <div class="clock">
+            <div class="time" id="current-time"></div>
+            <div class="gmt" id="gmt-offset"></div>
+        </div>
+
+        <!-- Appointment Form Section -->
+        <div class="appointment-form">
+            <h2>Schedule an Appointment</h2>
+            <form action="/schedule-appointment" method="post">
+                <div class="input-group">
+                    <input id="name" name="name" placeholder="Your name" required type="text">
+                </div>
+                <div class="input-group">
+                    <input id="email" name="email" placeholder="Your email address" required type="email">
+                </div>
+                <div class="input-group">
+                    <input id="phone" name="phone" placeholder="Your phone number" required type="text">
+                </div>
+                <div class="input-group">
+                    <input id="appointment-date" name="date" placeholder="Appointment date" required type="date">
+                </div>
+                <div class="input-group">
+                    <input id="appointment-time" name="time" placeholder="Appointment time" required type="time">
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Your message (optional)"></textarea>
+                </div>
+                <button type="submit">Schedule Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Update current time with timezone info and GMT offset
+        const updateTime = () => {
+            const date = new Date();
+            const hours = date.getHours().toString().padStart(2, "0");
+            const minutes = date.getMinutes().toString().padStart(2, "0");
+            const seconds = date.getSeconds().toString().padStart(2, "0");
+
+            const time = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("current-time").textContent = time;
+
+            // Get the GMT offset (e.g., GMT+6)
+            // const gmtOffset = `Bangladesh (GMT+${date.getTimezoneOffset() / -60})`;  // Offset in hours
+            const gmtOffset = `Bangladesh (GMT+6)`;  // Offset in hours
+            document.getElementById("gmt-offset").textContent = gmtOffset;
+        };
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
