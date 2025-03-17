@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment</title>
+    <link rel="stylesheet" href="/static/css/apoint.css"> <!-- Link to your CSS -->
+</head>
+<body>
+
+    <div class="appointment-form">
+        <h2>Schedule an Appointment</h2>
+        <form action="/schedule-appointment" method="post">
+            <input name="name" placeholder="Your name" required type="text">
+            <input name="email" placeholder="Your email address" required type="email">
+            <input name="phone" placeholder="Your phone number" required type="text">
+            <input name="date" placeholder="Appointment date" required type="date">
+            <input name="time" placeholder="Appointment time" required type="time">
+            <textarea name="message" placeholder="Your message (optional)"></textarea>
+            <button type="submit">Schedule Appointment</button>
+        </form>
+    </div>
+
+</body>
+</html>
