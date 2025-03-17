@@ -53,7 +53,8 @@
             document.getElementById("current-time").textContent = time;
 
             // Get the GMT offset (e.g., GMT+6)
-            const gmtOffset = `GMT${date.getTimezoneOffset() / -60}`;  // Offset in hours
+            // const gmtOffset = `Bangladesh (GMT+${date.getTimezoneOffset() / -60})`;  // Offset in hours
+            const gmtOffset = `Bangladesh (GMT+6)`;  // Offset in hours
             document.getElementById("gmt-offset").textContent = gmtOffset;
         };
 
