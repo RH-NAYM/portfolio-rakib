@@ -27,6 +27,24 @@ async def read_index(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error rendering index.html: {e}")
 
+
+
+@app.post("/now-appointment", response_class=HTMLResponse)
+async def now_appointment_post(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(...), date: str = Form(...), time: str = Form(...), message: str = Form(...)):
+    try:
+        # Send confirmation email (optional)
+        send_email(email, name, date, time)
+
+        # Logic for storing appointment details (optional)
+        # You can store them in a database, or log them, etc.
+
+        return templates.TemplateResponse("appointment-success.html", {"request": request, "name": name, "email": email, "date": date, "time": time, "message": message})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error handling appointment: {e}")
+
+
+
+
 @app.get("/schedule-appointment", response_class=HTMLResponse)
 async def schedule_appointment(request: Request):
     try:
