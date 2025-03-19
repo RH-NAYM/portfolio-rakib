@@ -5,6 +5,9 @@ from fastapi.templating import Jinja2Templates
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from .en import MYINFO
+
+
 
 app = FastAPI(title="Subscription Service")
 
@@ -14,9 +17,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Jinja2 template engine
 templates = Jinja2Templates(directory="templates")
 
+items = MYINFO()
 # SMTP Email setup (adjust with your email credentials)
 EMAIL = "naym.mj@gmail.com"
-PASSWORD = "qwpi okax czji hvkt"  # App password if 2FA enabled
+cred = items.get_data()
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
@@ -54,7 +58,7 @@ def subs(receiver_email: str):
         # Connect to Gmail SMTP server
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()  # Secure the connection
-            server.login(EMAIL, PASSWORD)  # Login to the SMTP server
+            server.login(EMAIL, cred)  # Login to the SMTP server
             server.sendmail(EMAIL, receiver_email, message.as_string())  # Send email
         print(f"Confirmation email sent to {receiver_email}")
 
@@ -135,7 +139,7 @@ def send_email(receiver_email: str, name: str, date: str, time: str, message: st
         # Connect to Gmail SMTP server
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()  # Secure the connection
-            server.login(EMAIL, PASSWORD)  # Login to the SMTP server
+            server.login(EMAIL, cred)  # Login to the SMTP server
             server.sendmail(EMAIL, receiver_email, message_mime.as_string())  # Send email
         print(f"Confirmation email sent to {receiver_email}")
 
