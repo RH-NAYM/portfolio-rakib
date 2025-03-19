@@ -27,8 +27,6 @@ async def read_index(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error rendering index.html: {e}")
 
-
-
 @app.post("/subscribe", response_class=HTMLResponse)
 async def subscribe(request: Request, email: str = Form(...)):
     try:
@@ -41,17 +39,16 @@ async def subscribe(request: Request, email: str = Form(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error handling subscription: {e}")
 
-
 def subs(receiver_email: str):
     try:
         # Setup the MIME
         message = MIMEMultipart()
         message["From"] = EMAIL
         message["To"] = receiver_email
-        message["Subject"] = "Subscription Confirmation"
+        message["Subject"] = "Subscription Confirmation 📨"
 
         # Email body
-        body = "Thank you for subscribing to our newsletter!"
+        body = "Thank you for subscribing to our newsletter! 🎉 We are thrilled to have you on board."
         message.attach(MIMEText(body, "plain"))
 
         # Connect to Gmail SMTP server
@@ -63,8 +60,6 @@ def subs(receiver_email: str):
 
     except Exception as e:
         print(f"Error sending email: {e}")
-        
-        
         
 @app.post("/now-appointment", response_class=HTMLResponse)
 async def now_appointment_post(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(...), date: str = Form(...), time: str = Form(...), message: str = Form(...)):
@@ -104,33 +99,32 @@ def send_email(receiver_email: str, name: str, date: str, time: str, message: st
         message_mime = MIMEMultipart()
         message_mime["From"] = EMAIL
         message_mime["To"] = receiver_email
-        message_mime["Subject"] = "Your Appointment Confirmation"
+        message_mime["Subject"] = "Your Appointment Confirmation 🎉"
 
         # Create a beautiful HTML body for the email
         html_body = f"""
         <html>
         <body>
-            <h2>Appointment Confirmation</h2>
-            <p>Dear {name},</p>
-            <p>We are pleased to confirm your appointment. Below are the details:</p>
-            <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+            <h2 style="color: #4CAF50;">Appointment Confirmation 📅</h2>
+            <p>Dear <strong>{name}</strong>,</p>
+            <p>We are pleased to confirm your appointment! 😊 Below are your details:</p>
+            <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse; padding: 10px;">
                 <tr>
-                    <th style="padding: 10px; text-align: left;">Date</th>
+                    <th style="padding: 10px; text-align: left; background-color: #f2f2f2;">Date</th>
                     <td style="padding: 10px;">{date}</td>
                 </tr>
                 <tr>
-                    <th style="padding: 10px; text-align: left;">Time</th>
+                    <th style="padding: 10px; text-align: left; background-color: #f2f2f2;">Time</th>
                     <td style="padding: 10px;">{time}</td>
                 </tr>
                 <tr>
-                    <th style="padding: 10px; text-align: left;">Message</th>
+                    <th style="padding: 10px; text-align: left; background-color: #f2f2f2;">Message</th>
                     <td style="padding: 10px;">{message}</td>
                 </tr>
             </table>
-            <p>If you have any questions, feel free to reply to this email.</p>
-            <p>Looking forward to meeting with you!</p>
-            <p>Best regards,</p>
-            <p><strong>Your Company Name</strong></p>
+            <p>If you need any further assistance, feel free to reply to this email! ✨</p>
+            <p>We look forward to meeting you soon! 😊</p>
+            <p><strong>Best regards,</strong><br>Your Company Name 🌟</p>
         </body>
         </html>
         """
