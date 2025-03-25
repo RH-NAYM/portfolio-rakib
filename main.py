@@ -78,6 +78,18 @@ async def now_appointment_post(request: Request, name: str = Form(...), email: s
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error handling appointment: {e}")
 
+
+
+@app.get("/contact", response_class=HTMLResponse)
+async def schedule_appointment(request: Request):
+    try:
+        return templates.TemplateResponse("contact.html", {"request": request})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error rendering contact.html: {e}")
+    
+    
+    
+
 @app.get("/schedule-appointment", response_class=HTMLResponse)
 async def schedule_appointment(request: Request):
     try:
