@@ -366,17 +366,13 @@ Version:	1.1
     .footer .footer-top {
         padding: 65px 0px;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    }
-    /* Mobile Screen */
-    @media only screen and (max-width: 767px) {
+}
+
+
+
+
+/* Mobile Screen */
+@media only screen and (max-width: 767px) {
     .header.sticky{
         
     }
@@ -1026,9 +1022,15 @@ Version:	1.1
     }
     
     
-    }
-    /* Mobile Screen */
-    @media only screen and (max-width: 450px) {
+}
+
+
+
+
+
+
+/* Mobile Screen */
+@media only screen and (max-width: 450px) {
     
     
     .section{
