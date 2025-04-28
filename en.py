@@ -1,10 +1,10 @@
 class MYINFO:
     def __init__(self):
         self.mail = {
-                        "a":"qwpi ",
-                        "b":"sokax ",
-                        "c":"czji ",
-                        "d":"hvkt",
+                        "a":"umni ",
+                        "b":"eonm ",
+                        "c":"ninr ",
+                        "d":"smyc",
                     }
         
         self.map = {
