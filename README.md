@@ -11,3 +11,4 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 
 
 added mobile view
+changes in the old
