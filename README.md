@@ -1,1 +1,0 @@
-# My Demo Portfolio with Fast-API
