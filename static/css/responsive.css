@@ -391,6 +391,19 @@ Version:	1.1
         font-size: 13px;
     }
 
+
+	.header .header-inner .get-quote {
+        margin-top: 5px;
+        display: none;
+        margin: 0;
+    }
+
+	.header.style2 .get-quote .btn {
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 5px;
+    }
+
     .btn {
         padding: 11px 20px;
         font-weight: 400;
@@ -409,7 +422,8 @@ Version:	1.1
     }
 
     .slider .single-slider {
-        height: 380px;
+		height: 150px;
+        /* height: 380px; */
     }
 
     .schedule {
@@ -426,7 +440,11 @@ Version:	1.1
     }
 
     .schedule .single-schedule {
-        margin: 15px 0;
+        margin: 5px 0;
+    }
+
+	.schedule .single-schedule.last{
+        margin-top:10px;
     }
 
     .slider .single-slider {
@@ -441,7 +459,7 @@ Version:	1.1
         height: 100%;
         width: 100%;
         background: #fff;
-        opacity: 0.5;
+        opacity: 0.3;
     }
 
     .slider .single-slider h1 {
@@ -500,8 +518,11 @@ Version:	1.1
     .fun-facts.section {
         padding: 70px 0;
     }
+	.fun-facts .single-fun {
+        margin: 10px 0;
+    }
 
-    .fun-facts .single-fun {
+    /* .fun-facts .single-fun {
         margin: 0;
         margin: 15px 0;
         position: relative;
@@ -522,7 +543,7 @@ Version:	1.1
 
     .fun-facts .single-fun .content {
         padding: 0;
-    }
+    } */
 
     .why-choose .choose-right {
         height: 350px;
