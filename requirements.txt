@@ -1,6 +1,4 @@
 fastapi
-jinja2
 uvicorn
-email-validator
+jinja2
 python-multipart
-mangum
