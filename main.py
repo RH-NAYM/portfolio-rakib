@@ -159,6 +159,6 @@ def send_email(receiver_email: str, name: str, date: str, time: str, message: st
         print(f"Error sending email: {e}")
         raise HTTPException(status_code=500, detail="Failed to send confirmation email")
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="127.0.0.1", port=8000)
