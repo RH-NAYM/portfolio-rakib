@@ -61,7 +61,7 @@ Version:	1.1
     }
     .header .header-inner .get-quote {
         margin-top: 12px;
-        display: none;
+        /* display: none; */
         margin: 0;
     }
     .header .nav li a {
@@ -392,9 +392,9 @@ Version:	1.1
     }
 
 
-	.header .header-inner .get-quote {
+    .header .header-inner .get-quote {
         margin-top: 5px;
-        display: none;
+        /* display: none; */
         margin: 0;
     }
 
